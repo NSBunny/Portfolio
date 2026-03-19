@@ -20,6 +20,7 @@ const RobotBrain = () => {
   // Here we simulate a "complex AI core" using high-detail geometry and textures.
 
   useFrame((state) => {
+    if (!groupRef.current) return;
     const time = state.clock.getElapsedTime();
 
     // Aggressive mouse reaction
