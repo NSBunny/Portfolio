@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-glass: rgba(10, 15, 30, 0.6);
@@ -11,7 +11,6 @@
 :root {
   color-scheme: dark;
   --foreground-rgb: 255, 255, 255;
-  color-scheme: light;
 }
 
 body {
@@ -113,7 +112,12 @@ a:hover .nav-indicator {
   left: 0;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 242, 255, 0.05), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 242, 255, 0.05),
+    transparent
+  );
   animation: scanline 8s linear infinite;
   pointer-events: none;
   z-index: 50;

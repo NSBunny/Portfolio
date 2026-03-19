@@ -1,0 +1,424 @@
+
+> modern-portfolio@0.1.0 lint
+> biome check
+
+src\app\page.tsx:9:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This import is unused.
+  
+     7 │ import Chat from "@/components/Chat";
+     8 │ import Contact from "@/components/Contact";
+   > 9 │ import CustomCursor from "@/components/CustomCursor";
+       │        ^^^^^^^^^^^^
+    10 │ import Experience from "@/components/Experience";
+    11 │ import Footer from "@/components/Footer";
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+      7   7 │   import Chat from "@/components/Chat";
+      8   8 │   import Contact from "@/components/Contact";
+      9     │ - import·CustomCursor·from·"@/components/CustomCursor";
+     10   9 │   import Experience from "@/components/Experience";
+     11  10 │   import Footer from "@/components/Footer";
+  
+
+src\components\About.tsx:9:3 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Several of these imports are unused.
+  
+     7 │   Database,
+     8 │   Eye,
+   > 9 │   FileJson,
+       │   ^^^^^^^^
+    10 │   Globe,
+    11 │   Layers,
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+      7   7 │     Database,
+      8   8 │     Eye,
+      9     │ - ··FileJson,
+     10   9 │     Globe,
+     11  10 │     Layers,
+  
+
+src\components\About.tsx:87:31 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━━━━━━
+
+  ! This parameter is unused.
+  
+    86 │         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+  > 87 │           {skills.map((skill, i) => {
+       │                               ^
+    88 │             // biome-ignore lint/suspicious/noExplicitAny: Bypass type inference issue.
+    89 │             const Icon: any = skillIcons[skill] || Code2;
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: If this is intentional, prepend i with an underscore.
+  
+     85  85 │   
+     86  86 │           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+     87     │ - ··········{skills.map((skill,·i)·=>·{
+         87 │ + ··········{skills.map((skill,·_i)·=>·{
+     88  88 │               // biome-ignore lint/suspicious/noExplicitAny: Bypass type inference issue.
+     89  89 │               const Icon: any = skillIcons[skill] || Code2;
+  
+
+src\components\CustomCursor.tsx:4:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━
+
+  ! These imports are unused.
+  
+    3 │ import { motion, useMotionValue, useSpring } from "framer-motion";
+  > 4 │ import React, { useEffect, useState } from "react";
+      │        ^^^^^
+    5 │ 
+    6 │ const CustomCursor = () => {
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+    4 │ import·React,·{·useEffect,·useState·}·from·"react";
+      │        -------                                     
+
+src\components\Experience.tsx:3:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This import is unused.
+  
+    1 │ import type React from "react";
+    2 │ import type { Experience } from "@/lib/types";
+  > 3 │ import ExternalLinkIcon from "./icons/ExternalLinkIcon";
+      │        ^^^^^^^^^^^^^^^^
+    4 │ 
+    5 │ interface ExperienceProps {
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+     1  1 │   import type React from "react";
+     2  2 │   import type { Experience } from "@/lib/types";
+     3    │ - import·ExternalLinkIcon·from·"./icons/ExternalLinkIcon";
+     4  3 │   
+     5  4 │   interface ExperienceProps {
+  
+
+src\components\Hero3D.tsx:17:38 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    15 │ const RobotBrain = () => {
+    16 │   const { mouse, viewport } = useThree();
+  > 17 │   const meshRef = useRef<THREE.Mesh>(null!);
+       │                                      ^^^^^
+    18 │   const groupRef = useRef<THREE.Group>(null!);
+    19 │ 
+  
+
+src\components\Hero3D.tsx:18:40 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    16 │   const { mouse, viewport } = useThree();
+    17 │   const meshRef = useRef<THREE.Mesh>(null!);
+  > 18 │   const groupRef = useRef<THREE.Group>(null!);
+       │                                        ^^^^^
+    19 │ 
+    20 │   // In a real scenario, we'd load a 3D model.
+  
+
+src\components\Hero3D.tsx:9:3 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Several of these imports are unused.
+  
+     7 │   PointMaterial,
+     8 │   Points,
+   > 9 │   useTexture,
+       │   ^^^^^^^^^^
+    10 │ } from "@react-three/drei";
+    11 │ import { Canvas, useFrame, useThree } from "@react-three/fiber";
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+      7   7 │     PointMaterial,
+      8   8 │     Points,
+      9     │ - ··useTexture,
+     10   9 │   } from "@react-three/drei";
+     11  10 │   import { Canvas, useFrame, useThree } from "@react-three/fiber";
+  
+
+src\components\Hero3D.tsx:12:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! These imports are unused.
+  
+    10 │ } from "@react-three/drei";
+    11 │ import { Canvas, useFrame, useThree } from "@react-three/fiber";
+  > 12 │ import React, { useMemo, useRef } from "react";
+       │        ^^^^^
+    13 │ import type * as THREE from "three";
+    14 │ 
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+    12 │ import·React,·{·useMemo,·useRef·}·from·"react";
+       │        -------                                 
+
+src\components\Hero3D.tsx:16:18 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable viewport is unused.
+  
+    15 │ const RobotBrain = () => {
+  > 16 │   const { mouse, viewport } = useThree();
+       │                  ^^^^^^^^
+    17 │   const meshRef = useRef<THREE.Mesh>(null!);
+    18 │   const groupRef = useRef<THREE.Group>(null!);
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src\components\Projects.tsx:32:15 lint/performance/noImgElement ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    30 │             {/* Project Image */}
+    31 │             <div className="aspect-video overflow-hidden relative">
+  > 32 │               <img
+       │               ^^^^
+  > 33 │                 src={
+        ...
+  > 41 │                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+  > 42 │               />
+       │               ^^
+    43 │               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+    44 │             </div>
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+src\app\globals.css:14:3 lint/suspicious/noDuplicateProperties ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Duplicate properties can lead to unexpected behavior and may override previous declarations unintentionally.
+  
+    12 │   color-scheme: dark;
+    13 │   --foreground-rgb: 255, 255, 255;
+  > 14 │   color-scheme: light;
+       │   ^^^^^^^^^^^^
+    15 │ }
+    16 │ 
+  
+  i color-scheme is already defined here.
+  
+    11 │ :root {
+  > 12 │   color-scheme: dark;
+       │   ^^^^^^^^^^^^
+    13 │   --foreground-rgb: 255, 255, 255;
+    14 │   color-scheme: light;
+  
+  i Remove or rename the duplicate property to ensure consistent styling.
+  
+
+src\app\page.tsx:130:26 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    128 │                 {config.certificates.map((cert, index) => (
+    129 │                   <div
+  > 130 │                     key={index}
+        │                          ^^^^^
+    131 │                     className="group relative rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all shadow-2xl"
+    132 │                   >
+  
+  i This is the source of the key value.
+  
+    127 │               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  > 128 │                 {config.certificates.map((cert, index) => (
+        │                                                 ^^^^^
+    129 │                   <div
+    130 │                     key={index}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Contact.tsx:111:21 lint/a11y/useButtonType ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Provide an explicit type prop for the button element.
+  
+    109 │                       </p>
+    110 │                     </div>
+  > 111 │                     <button
+        │                     ^^^^^^^
+  > 112 │                       onClick={() => setSubmitted(false)}
+  > 113 │                       className="text-cyan-400 text-sm font-semibold hover:underline"
+  > 114 │                     >
+        │                     ^
+    115 │                       Send another message
+    116 │                     </button>
+  
+  i The default type of a button is submit, which causes the submission of a form when placed inside a `form` element. This is likely not the behaviour that you want inside a React application.
+  
+  i Allowed button types are: submit, button or reset
+  
+
+src\components\Contact.tsx:153:20 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    151 │           ].map((item, i) => (
+    152 │             <a
+  > 153 │               key={i}
+        │                    ^
+    154 │               href={item.href}
+    155 │               target={item.href !== "#" ? "_blank" : undefined}
+  
+  i This is the source of the key value.
+  
+    149 │               icon: MapPin,
+    150 │             },
+  > 151 │           ].map((item, i) => (
+        │                        ^
+    152 │             <a
+    153 │               key={i}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Experience.tsx:9:7 lint/suspicious/noRedeclare ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Shouldn't redeclare 'Experience'. Consider to delete it or rename it.
+  
+     7 │ }
+     8 │ 
+   > 9 │ const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
+       │       ^^^^^^^^^^
+    10 │   return (
+    11 │     <section
+  
+  i 'Experience' is defined here:
+  
+    1 │ import type React from "react";
+  > 2 │ import type { Experience } from "@/lib/types";
+      │               ^^^^^^^^^^
+    3 │ import ExternalLinkIcon from "./icons/ExternalLinkIcon";
+    4 │ 
+  
+
+src\components\Experience.tsx:26:18 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    24 │         {experiences.map((exp, index) => (
+    25 │           <div
+  > 26 │             key={index}
+       │                  ^^^^^
+    27 │             className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+    28 │           >
+  
+  i This is the source of the key value.
+  
+    23 │       <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+  > 24 │         {experiences.map((exp, index) => (
+       │                                ^^^^^
+    25 │           <div
+    26 │             key={index}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Experience.tsx:59:26 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    57 │                 {exp.description.map((item, i) => (
+    58 │                   <li
+  > 59 │                     key={i}
+       │                          ^
+    60 │                     className="text-sm text-slate-400 font-light flex items-start gap-2"
+    61 │                   >
+  
+  i This is the source of the key value.
+  
+    55 │               </div>
+    56 │               <ul className="space-y-3">
+  > 57 │                 {exp.description.map((item, i) => (
+       │                                             ^
+    58 │                   <li
+    59 │                     key={i}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Header.tsx:51:24 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    49 │               { icon: PhoneIcon, href: `tel:${contact.phone}`, label: "Phone" },
+    50 │             ].map((item, i) => (
+  > 51 │               <li key={i} className="shrink-0">
+       │                        ^
+    52 │                 <a
+    53 │                   className="block text-slate-400 hover:text-cyan-600 transition-colors"
+  
+  i This is the source of the key value.
+  
+    48 │               },
+    49 │               { icon: PhoneIcon, href: `tel:${contact.phone}`, label: "Phone" },
+  > 50 │             ].map((item, i) => (
+       │                          ^
+    51 │               <li key={i} className="shrink-0">
+    52 │                 <a
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Projects.tsx:27:18 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    25 │         {projects.map((project, index) => (
+    26 │           <div
+  > 27 │             key={index}
+       │                  ^^^^^
+    28 │             className="group relative rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all shadow-2xl"
+    29 │           >
+  
+  i This is the source of the key value.
+  
+    24 │       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  > 25 │         {projects.map((project, index) => (
+       │                                 ^^^^^
+    26 │           <div
+    27 │             key={index}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 6.
+Checked 30 files in 30ms. No fixes applied.
+Found 14 errors.
+Found 12 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

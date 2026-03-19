@@ -1,0 +1,431 @@
+src\app\page.tsx:132:45 lint/performance/noImgElement ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    130 │                                         <div className='aspect-[4/3] bg-gradient-to-br from-slate-800 to-slate-950 p-6 flex items-center justify-center relative overflow-hidden'>
+    131 │                                             <div className='absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-cyan-500' />
+  > 132 │                                             <img
+        │                                             ^^^^
+  > 133 │                                                 src={cert.image || '/ai_neural_processor_core_1773297711972.png'}
+  > 134 │                                                 alt={cert.name}
+  > 135 │                                                 className='max-h-full max-w-full object-contain drop-shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-transform duration-500 group-hover:scale-105'
+  > 136 │                                             />
+        │                                             ^^
+    137 │                                         </div>
+    138 │ 
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+src\app\page.tsx:8:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This import is unused.
+  
+     6 │ import Chat from '@/components/Chat';
+     7 │ import Contact from '@/components/Contact';
+   > 8 │ import CustomCursor from '@/components/CustomCursor';
+       │        ^^^^^^^^^^^^
+     9 │ import Experience from '@/components/Experience';
+    10 │ import Footer from '@/components/Footer';
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+      6   6 │   import Chat from '@/components/Chat';
+      7   7 │   import Contact from '@/components/Contact';
+      8     │ - import·CustomCursor·from·'@/components/CustomCursor';
+      9   8 │   import Experience from '@/components/Experience';
+     10   9 │   import Footer from '@/components/Footer';
+  
+
+src\components\About.tsx:21:54 lint/suspicious/noExplicitAny ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Unexpected any. Specify a different type.
+  
+    19 │ }
+    20 │ 
+  > 21 │ const skillIcons: { [key: string]: React.ElementType<any> } = {
+       │                                                      ^^^
+    22 │   'Java': Code2,
+    23 │   'Python': Terminal,
+  
+  i any disables many type checking rules. Its use should be avoided.
+  
+
+src\components\About.tsx:71:25 lint/suspicious/noExplicitAny ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Unexpected any. Specify a different type.
+  
+    69 │         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    70 │           {skills.map((skill, i) => {
+  > 71 │             const Icon: any = skillIcons[skill] || Code2;
+       │                         ^^^
+    72 │             return (
+    73 │               <div key={skill} className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-400/50 transition-all group cursor-default flex flex-col items-center justify-center text-center">
+  
+  i any disables many type checking rules. Its use should be avoided.
+  
+
+src\components\About.tsx:9:3 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Several of these imports are unused.
+  
+     7 │   Database,
+     8 │   Eye,
+   > 9 │   FileJson,
+       │   ^^^^^^^^
+    10 │   Globe,
+    11 │   Layers,·
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+     7  7 │     Database,
+     8  8 │     Eye,
+     9    │ - ··FileJson,
+    10  9 │     Globe,
+    11 10 │     Layers,·
+  
+
+src\components\About.tsx:70:31 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━━━━━━
+
+  ! This parameter is unused.
+  
+    69 │         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+  > 70 │           {skills.map((skill, i) => {
+       │                               ^
+    71 │             const Icon: any = skillIcons[skill] || Code2;
+    72 │             return (
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: If this is intentional, prepend i with an underscore.
+  
+    68 68 │   
+    69 69 │           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    70    │ - ··········{skills.map((skill,·i)·=>·{
+       70 │ + ··········{skills.map((skill,·_i)·=>·{
+    71 71 │               const Icon: any = skillIcons[skill] || Code2;
+    72 72 │               return (
+  
+
+src\components\Chat.tsx:91:41 lint/suspicious/noExplicitAny ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Unexpected any. Specify a different type.
+  
+    89 │                     className='flex-1 p-4 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-cyan-500/20'
+    90 │                 >
+  > 91 │                     {messages.map((msg: any, i) => (
+       │                                         ^^^
+    92 │                         <div
+    93 │                             key={msg.id || i}
+  
+  i any disables many type checking rules. Its use should be avoided.
+  
+
+src\components\Chat.tsx:11:7 lint/correctness/noUnusedVariables  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable CHAT_STORAGE_KEY is unused.
+  
+     9 │ import SendIcon from './icons/SendIcon';
+    10 │ 
+  > 11 │ const CHAT_STORAGE_KEY = 'chatMessages';
+       │       ^^^^^^^^^^^^^^^^
+    12 │ 
+    13 │ const Chat: React.FC = () => {
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+  i Unsafe fix: If this is intentional, prepend CHAT_STORAGE_KEY with an underscore.
+  
+      9   9 │   import SendIcon from './icons/SendIcon';
+     10  10 │   
+     11     │ - const·CHAT_STORAGE_KEY·=·'chatMessages';
+         11 │ + const·_CHAT_STORAGE_KEY·=·'chatMessages';
+     12  12 │   
+     13  13 │   const Chat: React.FC = () => {
+  
+
+src\components\CustomCursor.tsx:4:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━
+
+  ! These imports are unused.
+  
+    3 │ import { motion, useMotionValue, useSpring } from 'framer-motion';
+  > 4 │ import React, { useEffect, useState } from 'react';
+      │        ^^^^^
+    5 │ 
+    6 │ const CustomCursor = () => {
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+    4 │ import·React,·{·useEffect,·useState·}·from·'react';␍
+      │        -------                                     
+
+src\components\Experience.tsx:3:8 lint/correctness/noUnusedImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This import is unused.
+  
+    1 │ import type React from 'react';
+    2 │ import type { Experience } from '@/lib/types';
+  > 3 │ import ExternalLinkIcon from './icons/ExternalLinkIcon';
+      │        ^^^^^^^^^^^^^^^^
+    4 │ 
+    5 │ interface ExperienceProps {
+  
+  i Unused imports might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: Remove the unused imports.
+  
+     1  1 │   import type React from 'react';
+     2  2 │   import type { Experience } from '@/lib/types';
+     3    │ - import·ExternalLinkIcon·from·'./icons/ExternalLinkIcon';
+     4  3 │   
+     5  4 │   interface ExperienceProps {
+  
+
+src\app\globals.css:14:3 lint/suspicious/noDuplicateProperties ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Duplicate properties can lead to unexpected behavior and may override previous declarations unintentionally.
+  
+    12 │   color-scheme: dark;
+    13 │   --foreground-rgb: 255, 255, 255;
+  > 14 │   color-scheme: light;
+       │   ^^^^^^^^^^^^
+    15 │ }
+    16 │ 
+  
+  i color-scheme is already defined here.
+  
+    11 │ :root {
+  > 12 │   color-scheme: dark;
+       │   ^^^^^^^^^^^^
+    13 │   --foreground-rgb: 255, 255, 255;
+    14 │   color-scheme: light;
+  
+  i Remove or rename the duplicate property to ensure consistent styling.
+  
+
+src\app\page.tsx:128:47 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    126 │                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+    127 │                                 {config.certificates.map((cert, index) => (
+  > 128 │                                     <div key={index} className='group relative rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all shadow-2xl'>
+        │                                               ^^^^^
+    129 │                                         {/* Cert Image / Icon */}
+    130 │                                         <div className='aspect-[4/3] bg-gradient-to-br from-slate-800 to-slate-950 p-6 flex items-center justify-center relative overflow-hidden'>
+  
+  i This is the source of the key value.
+  
+    126 │                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  > 127 │                                 {config.certificates.map((cert, index) => (
+        │                                                                 ^^^^^
+    128 │                                     <div key={index} className='group relative rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all shadow-2xl'>
+    129 │                                         {/* Cert Image / Icon */}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Chat.tsx:34:5 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━━━━━━━━━
+
+  × This hook specifies more dependencies than necessary: messages
+  
+    33 │     // Persist & scroll
+  > 34 │     useEffect(() => {
+       │     ^^^^^^^^^
+    35 │         if (chatBodyRef.current) {
+    36 │             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+  
+  i This dependency can be removed from the list.
+  
+    36 │             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    37 │         }
+  > 38 │     }, [messages]);
+       │         ^^^^^^^^
+    39 │ 
+    40 │     const handleSendMessage = (e: React.FormEvent) => {
+  
+  i Unsafe fix: Remove the extra dependencies from the list.
+  
+    38 │ ····},·[messages]);
+       │         --------   
+
+src\components\Chat.tsx:58:17 lint/a11y/useButtonType ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Provide an explicit type prop for the button element.
+  
+    56 │                     }`}
+    57 │             >
+  > 58 │                 <button
+       │                 ^^^^^^^
+  > 59 │                     onClick={toggleChat}
+  > 60 │                     className='bg-cyan-500 text-slate-900 rounded-full p-4 shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:bg-cyan-400 hover:scale-110 transition-all'
+  > 61 │                 >
+       │                 ^
+    62 │                     <ChatIcon className='h-8 w-8' />
+    63 │                 </button>
+  
+  i The default type of a button is submit, which causes the submission of a form when placed inside a `form` element. This is likely not the behaviour that you want inside a React application.
+  
+  i Allowed button types are: submit, button or reset
+  
+
+src\components\Chat.tsx:78:21 lint/a11y/useButtonType ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Provide an explicit type prop for the button element.
+  
+    76 │                         AI Terminal
+    77 │                     </h3>
+  > 78 │                     <button
+       │                     ^^^^^^^
+  > 79 │                         onClick={toggleChat}
+  > 80 │                         className='text-slate-400 hover:text-cyan-400 transition-colors'
+  > 81 │                     >
+       │                     ^
+    82 │                         <CloseIcon className='h-6 w-6' />
+    83 │                     </button>
+  
+  i The default type of a button is submit, which causes the submission of a form when placed inside a `form` element. This is likely not the behaviour that you want inside a React application.
+  
+  i Allowed button types are: submit, button or reset
+  
+
+src\components\Chat.tsx:111:56 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    109 │                                     ) =>
+    110 │                                         part.type === 'text' ? (
+  > 111 │                                             <span key={idx}>{part.text}</span>
+        │                                                        ^^^
+    112 │                                         ) : null
+    113 │                                 )}
+  
+  i This is the source of the key value.
+  
+    106 │                                     (
+    107 │                                         part: { type: string; text: string },
+  > 108 │                                         idx: number
+        │                                         ^^^
+    109 │                                     ) =>
+    110 │                                         part.type === 'text' ? (
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Experience.tsx:9:7 lint/suspicious/noRedeclare ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Shouldn't redeclare 'Experience'. Consider to delete it or rename it.
+  
+     7 │ }
+     8 │ 
+   > 9 │ const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
+       │       ^^^^^^^^^^
+    10 │     return (
+    11 │         <section
+  
+  i 'Experience' is defined here:
+  
+    1 │ import type React from 'react';
+  > 2 │ import type { Experience } from '@/lib/types';
+      │               ^^^^^^^^^^
+    3 │ import ExternalLinkIcon from './icons/ExternalLinkIcon';
+    4 │ 
+  
+
+src\components\Experience.tsx:25:31 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    23 │             <div className='relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent'>
+    24 │                 {experiences.map((exp, index) => (
+  > 25 │                     <div key={index} className='relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group'>
+       │                               ^^^^^
+    26 │                         {/* Dot */}
+    27 │                         <div className='flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-slate-900 text-cyan-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2'>
+  
+  i This is the source of the key value.
+  
+    23 │             <div className='relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent'>
+  > 24 │                 {experiences.map((exp, index) => (
+       │                                        ^^^^^
+    25 │                     <div key={index} className='relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group'>
+    26 │                         {/* Dot */}
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Experience.tsx:47:46 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    45 │                             <ul className='space-y-3'>
+    46 │                                 {exp.description.map((item, i) => (
+  > 47 │                                     <li key={i} className='text-sm text-slate-400 font-light flex items-start gap-2'>
+       │                                              ^
+    48 │                                         <span className='text-cyan-500 shrink-0 mt-1'>+</span>
+    49 │                                         <span>{item}</span>
+  
+  i This is the source of the key value.
+  
+    44 │                             </div>
+    45 │                             <ul className='space-y-3'>
+  > 46 │                                 {exp.description.map((item, i) => (
+       │                                                             ^
+    47 │                                     <li key={i} className='text-sm text-slate-400 font-light flex items-start gap-2'>
+    48 │                                         <span className='text-cyan-500 shrink-0 mt-1'>+</span>
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+src\components\Header.tsx:50:38 lint/suspicious/noArrayIndexKey ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Avoid using the index of an array as key property in an element.
+  
+    48 │                             { icon: PhoneIcon, href: `tel:${contact.phone}`, label: 'Phone' }
+    49 │                         ].map((item, i) => (
+  > 50 │                             <li key={i} className='shrink-0'>
+       │                                      ^
+    51 │                                 <a
+    52 │                                     className='block text-slate-400 hover:text-cyan-600 transition-colors'
+  
+  i This is the source of the key value.
+  
+    47 │                             { icon: EmailIcon, href: `mailto:${contact.email}`, label: 'Email' },
+    48 │                             { icon: PhoneIcon, href: `tel:${contact.phone}`, label: 'Phone' }
+  > 49 │                         ].map((item, i) => (
+       │                                      ^
+    50 │                             <li key={i} className='shrink-0'>
+    51 │                                 <a
+  
+  i The order of the items may change, and this also affects performances and component state.
+  
+  i Check the React documentation. 
+  
+
+Skipped 12 suggested fixes.
+If you wish to apply the suggested (unsafe) fixes, use the command biome check --write --unsafe
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 9.
+Checked 30 files in 56ms. Fixed 25 files.
+Found 13 errors.
+Found 16 warnings.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while applying fixes.
+  
+

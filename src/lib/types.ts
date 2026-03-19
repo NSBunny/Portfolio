@@ -43,6 +43,6 @@ export interface PortfolioConfig {
 }
 
 export interface Message {
-  sender: 'user' | 'ai';
+  sender: "user" | "ai";
   text: string;
 }
