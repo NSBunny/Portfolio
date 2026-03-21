@@ -18,13 +18,34 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, email, message });
-    setSubmitted(true);
-    setName("");
-    setEmail("");
-    setMessage("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "28694fa9-b078-4fcd-9589-2b7cd23fa428",
+          name: name,
+          email: email,
+          message: message,
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch {
+      alert("Network error. Please try again.");
+    }
   };
 
   return (
