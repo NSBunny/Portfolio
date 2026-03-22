@@ -56,7 +56,13 @@ const Contact = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Left Side: Form */}
-        <div className="flex flex-col gap-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-8"
+        >
           <div className="space-y-4 group/title">
             <span className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">
               <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
@@ -141,7 +147,7 @@ const Contact = () => {
               )}
             </AnimatePresence>
           </form>
-        </div>
+        </motion.div>
 
         {/* Right Side: Contact Grid */}
         <div className="grid grid-cols-1 gap-4 h-fit">
@@ -170,8 +176,12 @@ const Contact = () => {
               href: "#",
               icon: MapPin,
             },
-          ].map((item, _i) => (
-            <a
+          ].map((item, index) => (
+            <motion.a
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               key={item.label}
               href={item.href}
               target={item.href !== "#" ? "_blank" : undefined}
@@ -187,7 +197,7 @@ const Contact = () => {
               <div className="text-lg font-medium text-slate-100 truncate">
                 {item.value}
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

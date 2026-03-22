@@ -1,4 +1,5 @@
 import type React from "react";
+import { motion } from "framer-motion";
 import type { Experience as ExperienceType } from "@/lib/types";
 
 interface ExperienceProps {
@@ -20,8 +21,12 @@ const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
       </div>
 
       <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-        {experiences.map((exp) => (
-          <div
+        {experiences.map((exp, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
             key={exp.company + exp.role}
             className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
           >
@@ -64,7 +69,7 @@ const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

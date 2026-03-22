@@ -11,6 +11,7 @@ import {
   Terminal,
 } from "lucide-react";
 import type React from "react";
+import { motion } from "framer-motion";
 
 interface AboutProps {
   bio: string;
@@ -83,11 +84,15 @@ const About: React.FC<AboutProps> = ({ bio, skills }) => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {skills.map((skill, _i) => {
+          {skills.map((skill, index) => {
             // biome-ignore lint/suspicious/noExplicitAny: Bypass type inference issue.
             const Icon: any = skillIcons[skill] || Code2;
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 key={skill}
                 className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-400/50 transition-all group cursor-default flex flex-col items-center justify-center text-center"
               >
@@ -97,7 +102,7 @@ const About: React.FC<AboutProps> = ({ bio, skills }) => {
                 <h3 className="text-[10px] font-bold tracking-widest uppercase text-white">
                   {skill}
                 </h3>
-              </div>
+              </motion.div>
             );
           })}
         </div>

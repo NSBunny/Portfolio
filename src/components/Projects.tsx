@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type React from "react";
 import type { Project } from "@/lib/types";
+import { motion } from "framer-motion";
 import ExternalLinkIcon from "./icons/ExternalLinkIcon";
 import GitHubIcon from "./icons/GitHubIcon";
 
@@ -23,8 +24,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <div
+        {projects.map((project, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
             key={project.name}
             className="group relative rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all shadow-2xl"
           >
@@ -91,7 +96,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
             {/* Interactive Overlay */}
             <div className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-500/20 rounded-3xl transition-all pointer-events-none" />
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ name, role, about, contact }) => {
         </p>
 
         <div className="mt-12 flex flex-col items-center gap-10">
-          <ResumeButton href="/resume.pdf" />
+          <ResumeButton href="https://drive.google.com/uc?export=download&id=1yfj_olz8qcDeJzkUOqXfoN5JQDu_J8oK" />
 
           <ul className="flex items-center gap-6" aria-label="Social media">
             {[

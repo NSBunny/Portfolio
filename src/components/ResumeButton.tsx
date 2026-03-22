@@ -28,7 +28,7 @@ const ResumeButton: React.FC<ResumeButtonProps> = ({ href }) => {
 
       {/* Content */}
       <FileText className="z-10 h-5 w-5 transition-transform group-hover:rotate-12" />
-      <span className="z-10">Download Résumé</span>
+      <span className="z-10">Download RESUME</span>
 
       {/* Scanning line effect */}
       <motion.div
