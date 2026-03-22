@@ -1,1 +1,0 @@
-src/components/About.tsx(75,25): error TS2322: Type 'string' is not assignable to type 'never'.
